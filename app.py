@@ -73,7 +73,7 @@ with st.form("form"):
             d = ImageDraw.Draw(img)
 
             # Specify font and size
-            fnt = ImageFont.truetype("./나눔손글씨 규리의 일기.ttf", 100)
+            fnt = ImageFont.truetype("./nanum.ttf", 100)
 
             # Calculate text size
             text_width, text_height = fnt.getbbox(image_prompt_korean)[2:4]
