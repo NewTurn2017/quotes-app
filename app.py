@@ -3,6 +3,9 @@ import openai
 import requests
 from PIL import Image, ImageDraw, ImageFont
 import textwrap
+import os
+
+os.environ["FONT_PATH"] = "/usr/share/fonts"
 
 st.title("명언 생성기")
 openai.api_key = st.secrets["apikey"]
@@ -73,7 +76,9 @@ with st.form("form"):
             d = ImageDraw.Draw(img)
 
             # Specify font and size
-            fnt = ImageFont.truetype("./nanum.ttf", 100)
+            fnt = ImageFont.truetype(
+                os.path.join(os.environ["FONT_PATH"], "nanum.ttf"), 100
+            )
 
             # Calculate text size
             text_width, text_height = fnt.getbbox(image_prompt_korean)[2:4]
